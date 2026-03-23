@@ -41,6 +41,7 @@ def run_agent(question: str):
 
     # test if the model is working:
     # curl http://192.168.88.30:11434/api/tags
+    # curl http://192.168.88.30:11434/v1/models
 
     # llm = init_chat_model(
     #     model=f"ollama:{MODEL}",
