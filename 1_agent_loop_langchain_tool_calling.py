@@ -37,17 +37,17 @@ def apply_discount(price: float, discount_tier: str) -> float:
 def run_agent(question: str):
     tools = [get_product_price, apply_discount]
     tools_dict = {tool.name: tool for tool in tools}
-    llm = init_chat_model(f"openai:gpt-5.4", temperature=0)
 
+    # llm = init_chat_model(f"openai:gpt-5.4", temperature=0)
     # test if the model is working:
     # curl http://192.168.88.30:11434/api/tags
     # curl http://192.168.88.30:11434/v1/models
 
-    # llm = init_chat_model(
-    #     model=f"ollama:{MODEL}",
-    #     temperature=0,
-    #     base_url="http://192.168.88.30:11434",
-    # )
+    llm = init_chat_model(
+        model=f"ollama:{MODEL}",
+        temperature=0,
+        base_url="http://192.168.88.30:11434",
+    )
 
     llm_with_tools = llm.bind_tools(tools)
     print(f"Initial question: {question}")
